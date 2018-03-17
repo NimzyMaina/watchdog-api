@@ -2,15 +2,14 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Call;
+use App\Sms;
 use Illuminate\Http\Request;
 
-
-class CallsController extends Controller
+class SmsController extends Controller
 {
 
     /**
-     * CallsController constructor.
+     * SmsController constructor.
      */
     public function __construct()
     {
@@ -22,20 +21,21 @@ class CallsController extends Controller
         $user = $this->user();
 
         $this->val($request->all(),[
+            'id' => 'required',
             'reference' => 'required',
             'type' => 'required',
             'phone' =>'required',
-            'duration' => 'required',
-            'start' => 'required',
-            'end' => 'required',
+            'time' => 'required',
             'charge_code' => 'present'
         ]);
 
-        $data = $request->all();
+        $data = $request->except('id');
         $data['user_id'] = $user->id;
-        if(Call::create($data)){
-            return $this->respond('Call saved successfully');
+        $data['sms_id'] = $request->id;
+
+        if(Sms::create($data)){
+            return $this->respond('Sms saved successfully');
         }
-        return $this->respond('Unable to save call',400);
+        return $this->respond('Unable to save sms',400);
     }
 }

@@ -14,18 +14,12 @@
 
 $api = app('Dingo\Api\Routing\Router');
 
-$api->get('hello',function(){
-    return 'hello';
-});
-
 $api->group(['prefix' => 'v1'], function ($api) {
-
-    $api->get('hello',function(){
-        return 'hello';
-    });
 
     $api->post('login/{provider}','Auth\LoginController@login');
     //$api->get('login/{provider}','LoginController@login');
 
     $api->post('calls','CallsController@store');
+
+    $api->post('sms','SmsController@store');
 });

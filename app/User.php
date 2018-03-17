@@ -30,4 +30,15 @@ class User extends Authenticatable
     {
         return $this->hasMany(Social::class);
     }
+
+    public function calls()
+    {
+        return $this->hasMany(Call::class);
+    }
+
+    public function sms()
+    {
+        return $this->hasMany(Sms::class);
+    }
+
 }

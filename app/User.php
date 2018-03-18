@@ -26,6 +26,12 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    public function fullname()
+    {
+        return $this->first_name. " ".$this->last_name;
+    }
+
+
     public function social()
     {
         return $this->hasMany(Social::class);

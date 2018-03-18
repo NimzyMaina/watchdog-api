@@ -19,7 +19,7 @@ Auth::routes();
 
 $s = 'social.';
 Route::get('/social/redirect/{provider}',['as' => $s . 'redirect','uses' => 'Auth\SocialController@getSocialRedirect']);
-Route::get('/social/handle/{provider}',['as' => $s . 'handle', 'uses' => 'Auth\SocialController@getSocialHandle']);
+Route::get('/social/handle/{provider}', ['as' => $s . 'handle', 'uses' => 'Auth\SocialController@getSocialHandle']);
 
 
 Route::get('/home', 'HomeController@index')->name('home');

@@ -79,7 +79,7 @@ class SocialController extends Controller
                 $newSocialUser->password = bcrypt(str_random(16));
                 $newSocialUser->api_token = str_random(64);
                 //$newSocialUser->phone = '';
-                $newSocialUser->is_active = true;
+                $newSocialUser->activated = true;
                 $newSocialUser->save();
 
                 $socialData = new Social;

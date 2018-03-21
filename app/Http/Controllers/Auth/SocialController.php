@@ -69,11 +69,11 @@ class SocialController extends Controller
                 $name = explode(' ', $user->name,2);
 
                 if (count($name) >= 1) {
-                    $newSocialUser->fname = $name[0];
+                    $newSocialUser->first_name = $name[0];
                 }
 
                 if (count($name) >= 2) {
-                    $newSocialUser->lname = $name[1];
+                    $newSocialUser->last_name = $name[1];
                 }
 
                 $newSocialUser->password = bcrypt(str_random(16));

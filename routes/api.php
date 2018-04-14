@@ -19,6 +19,10 @@ $api->group(['prefix' => 'v1'], function ($api) {
     $api->post('login/{provider}','Auth\LoginController@login');
     //$api->get('login/{provider}','LoginController@login');
 
+    $api->post('auth','Auth\LoginController@authenticate');
+
+    $api->post('register','Auth\LoginController@register');
+
     $api->post('calls','CallsController@store');
 
     $api->post('sms','SmsController@store');

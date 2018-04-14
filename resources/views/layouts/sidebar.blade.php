@@ -25,6 +25,18 @@
                     <i class="fa fa-envelope-o"></i> <span>SMS</span>
                 </a>
             </li>
+            <li class="treeview @if(seg(1) == 'users') active @endif">
+                <a href="#">
+                    <i class="fa fa-users"></i> <span>Users</span>
+                    <span class="pull-right-container">
+                          <i class="fa fa-angle-left pull-right"></i>
+                        </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li class="@if(seg(2) == 'list') active @endif"><a href="{{route('users.list')}}"><i class="fa fa-circle-o @if(seg(2) == 'list') text-green @endif"></i> List Users</a></li>
+                    <li class="@if(seg(2) == 'import') active @endif"><a href="{{route('users.importForm')}}"><i class="fa fa-circle-o @if(seg(2) == 'import') text-green @endif"></i> Import Users</a></li>
+                </ul>
+            </li>
         </ul>
     </section>
     <!-- /.sidebar -->

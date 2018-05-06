@@ -55,3 +55,41 @@ Route::group(['prefix' => 'users'],function(){
     Route::get('activate/{id}','UsersController@activate')->name('users.activate');
 
 });
+
+Route::group(['prefix' => 'settings'],function (){
+    Route::get('tariffs','SettingsController@index')->name('settings.tariffs');
+    Route::get('tariffData','SettingsController@tariffData')->name('settings.tariffs.data');
+
+    Route::get('tariffs/create','SettingsController@tariffCreate')->name('settings.tariffs.create');
+    Route::post('tariffs/create','SettingsController@tariffStore')->name('settings.tariffs.store');
+    Route::put('tariffs/update','SettingsController@tariffUpdate')->name('settings.tariffs.update');
+});
+
+Route::get('test',function (){
+    $phone = "0724844946"; // safaricom
+    $phone = "+254789606416"; // airtel
+    $safaricom = "/(\+?254|0|^){1}[-. ]?[7]{1}([0-2]{1}[0-9]{1}|[9]{1}[0-2]{1})[0-9]{6}\z/";
+    $equitel = "/(\+?254|0|^){1}[-. ]?[7]{1}([6]{1}[3-5]{1})[0-9]{6}\z/";
+    $airtel = "/(\+?254|0|^){1}[-. ]?[7]{1}([3-5]{1}[0-6]{1}|[8]{1}[5-9]{1})[0-9]{6}\z/";
+    $telcom = "/(\+?254|0|^){1}[-. ]?[7]{1}([7]{1}[0-6]{1})[0-9]{6}\z/";
+    if(preg_match($safaricom,$phone)){
+        echo 'SAFARICOM';
+    }else if(preg_match($airtel,$phone)) {
+        echo 'AIRTEL';
+    }else if(preg_match($equitel,$phone)) {
+        echo 'EQUITEL';
+    }else if(preg_match($telcom,$phone)) {
+        echo 'TELCOM';
+    }else {
+        echo "UNKNOWN";
+    }
+});
+
+Route::get('test2',function (){
+   $value = 30;
+   $unit = 60;
+   $charge = 3;
+
+   echo $charge * ($value/$unit);
+
+});

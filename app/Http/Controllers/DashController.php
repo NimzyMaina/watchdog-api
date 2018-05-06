@@ -31,6 +31,12 @@ class DashController extends Controller
         $user = $request->user();
         $calls = $user->calls()->get();
         return Datatables::of(collect($calls))
+            ->editColumn('cost', function($call){
+                return "KES " . $call->cost;
+            })
+            ->editColumn('duration', function($call){
+                return number_format($call->cost). " sec";
+            })
             ->make(true);
 
     }

@@ -21,10 +21,11 @@
                 <tr>
                     <th>ID</th>
                     <th>Type</th>
-                    <th>Duration</th>
-                    <th>Phone</th>
-                    <th>Reference</th>
                     <th>Charge Code</th>
+                    <th>Phone</th>
+                    <th>Duration</th>
+                    <th>Cost</th>
+                    <th>Tariff</th>
                     <th>Date</th>
                 </tr>
                 </thead>
@@ -32,10 +33,11 @@
                 <tr>
                     <th>ID</th>
                     <th>Type</th>
-                    <th>Duration</th>
-                    <th>Phone</th>
-                    <th>Reference</th>
                     <th>Charge Code</th>
+                    <th>Phone</th>
+                    <th>Duration</th>
+                    <th>Cost</th>
+                    <th>Tariff</th>
                     <th>Date</th>
                 </tr>
                 </tfoot>
@@ -67,10 +69,11 @@
                 columns: [
                     { data: 'id', name: 'id' },
                     { data: 'type', name: 'type' },
-                    { data: 'duration', name: 'duration' },
-                    { data: 'phone', name: 'phone' },
-                    { data: 'reference', name: 'reference'},
                     { data: 'charge_code', name: 'charge_code'},
+                    { data: 'phone', name: 'phone' },
+                    { data: 'duration', name: 'duration' },
+                    { data: 'cost', name: 'cost'},
+                    { data: 'tariff', name: 'tariff'},
                     { data: 'start', name: 'start'}
                 ],
                 lengthMenu: [[10, 25, 50,100, -1], [10, 25, 50, 100, 'All']]
